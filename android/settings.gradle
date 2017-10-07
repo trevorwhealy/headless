@@ -1,0 +1,3 @@
+rootProject.name = 'headless'
+
+include ':app'
