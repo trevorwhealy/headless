@@ -9,7 +9,8 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  AppRegistry,
 } from 'react-native';
 
 const instructions = Platform.select({
@@ -55,3 +56,11 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+const SomeTaskName = async data => {
+  console.log("help me")
+  console.log(data)
+  console.log("please")
+}
+
+AppRegistry.registerHeadlessTask("SomeTaskName", () => SomeTaskName)
