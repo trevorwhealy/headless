@@ -15,7 +15,8 @@ public class MyTaskService extends HeadlessJsTaskService {
       return new HeadlessJsTaskConfig(
           "SomeTaskName",
           Arguments.fromBundle(extras),
-          5000);
+          5000,
+          true);
     }
     return null;
   }
