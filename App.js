@@ -64,10 +64,10 @@ const styles = StyleSheet.create({
 });
 
 const SomeTaskName = async data => {
-  console.log("help me")
+  console.log('========== Gets Here ============')
   console.log(data)
   await AsyncStorage.setItem('somekey', data);
-  console.log("please")
+  console.log('========== Gets Here ============')
 }
 
 AppRegistry.registerHeadlessTask("SomeTaskName", () => SomeTaskName)

@@ -20,9 +20,4 @@ public class MyTaskService extends HeadlessJsTaskService {
     }
     return null;
   }
-
-  // @Override
-  // public int onStartCommand(Intent intent, int flags, int startId) {
-  //     return START_REDELIVER_INTENT;
-  // }
 }
