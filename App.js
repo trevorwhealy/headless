@@ -35,10 +35,15 @@ export default class App extends Component<{}> {
         <Text style={styles.instructions}>
           {instructions}
         </Text>
-        <TouchableOpacity onPress={async () => {
-          const value = await AsyncStorage.getItem('somekey');
-          console.log('sup', value)
-        }}><Text>Click</Text></TouchableOpacity>
+        <TouchableOpacity
+          onPress={async () => {
+          console.log('----------------------------')
+          const value = await AsyncStorage.getItem('TESTKEY');
+          console.log('AsyncStorage result:', value)
+          console.log('----------------------------')
+        }}>
+        <Text>Click to retrieve TESTKEY from AsyncStorage</Text>
+      </TouchableOpacity>
       </View>
     );
   }
@@ -64,10 +69,10 @@ const styles = StyleSheet.create({
 });
 
 const SomeTaskName = async data => {
-  console.log('========== Gets Here ============')
-  console.log(data)
-  await AsyncStorage.setItem('somekey', data);
-  console.log('========== Gets Here ============')
+  console.log('++++++++++++++++++++++++++++')
+  console.log('Reply From HeadlessJS:', data)
+  await AsyncStorage.setItem('TESTKEY', data);
+  console.log('++++++++++++++++++++++++++++')
 }
 
 AppRegistry.registerHeadlessTask("SomeTaskName", () => SomeTaskName)
