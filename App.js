@@ -11,6 +11,8 @@ import {
   Text,
   View,
   AppRegistry,
+  AsyncStorage,
+  TouchableOpacity
 } from 'react-native';
 
 const instructions = Platform.select({
@@ -33,6 +35,10 @@ export default class App extends Component<{}> {
         <Text style={styles.instructions}>
           {instructions}
         </Text>
+        <TouchableOpacity onPress={async () => {
+          const value = await AsyncStorage.getItem('somekey');
+          console.log('sup', value)
+        }}><Text>Click</Text></TouchableOpacity>
       </View>
     );
   }
@@ -60,6 +66,7 @@ const styles = StyleSheet.create({
 const SomeTaskName = async data => {
   console.log("help me")
   console.log(data)
+  await AsyncStorage.setItem('somekey', data);
   console.log("please")
 }
 

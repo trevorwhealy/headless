@@ -13,11 +13,16 @@ public class MyTaskService extends HeadlessJsTaskService {
     Bundle extras = intent.getExtras();
     if (extras != null) {
       return new HeadlessJsTaskConfig(
-          "SomeTaskName",
-          Arguments.fromBundle(extras),
-          5000,
-          true);
+        "SomeTaskName",
+        Arguments.fromBundle(extras),
+        5000,
+        true);
     }
     return null;
   }
+
+  // @Override
+  // public int onStartCommand(Intent intent, int flags, int startId) {
+  //     return START_REDELIVER_INTENT;
+  // }
 }
