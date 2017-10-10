@@ -9,7 +9,10 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  AppRegistry,
+  AsyncStorage,
+  TouchableOpacity
 } from 'react-native';
 
 const instructions = Platform.select({
@@ -32,6 +35,15 @@ export default class App extends Component<{}> {
         <Text style={styles.instructions}>
           {instructions}
         </Text>
+        <TouchableOpacity
+          onPress={async () => {
+          console.log('----------------------------')
+          const value = await AsyncStorage.getItem('TESTKEY');
+          console.log('AsyncStorage result:', value)
+          console.log('----------------------------')
+        }}>
+        <Text>Click to retrieve TESTKEY from AsyncStorage</Text>
+      </TouchableOpacity>
       </View>
     );
   }
@@ -55,3 +67,12 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+const SomeTaskName = async data => {
+  console.log('++++++++++++++++++++++++++++')
+  console.log('Reply From HeadlessJS:', data)
+  await AsyncStorage.setItem('TESTKEY', data);
+  console.log('++++++++++++++++++++++++++++')
+}
+
+AppRegistry.registerHeadlessTask("SomeTaskName", () => SomeTaskName)
